@@ -2,6 +2,20 @@
 
 function processData(salaries) {
   // start coding here
+  let weakmap       = new WeakMap();
+  let result        = salaries;
+
+  
+  let members       = Object.entries(result);
+  let totalSalary   = 0; 
+
+  for (const member of members) {
+    totalSalary     += member[1];
+  }
+
+  weakmap.set(salaries, totalSalary);
+  
+  return weakmap.get(salaries);
 }
 
 let marketingSalary = { Dan: 1000, Emily: 3000, John: 3000, Kate: 5000 };
