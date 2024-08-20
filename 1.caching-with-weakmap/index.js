@@ -1,7 +1,25 @@
-// please use weakmap to cache the total salary
+// // please use weakmap to cache the total salary
+// start coding here
+
+// Step 1: Create a WeakMap to cache results
+const cacheMap = new WeakMap();
 
 function processData(salaries) {
-  // start coding here
+  // Step 3: Check if the result is already cached
+  if (cacheMap.has(salaries)) {
+    console.log('Returning cached result');
+    return cacheMap.get(salaries);
+  }
+
+  // Step 2: sum all numeric values
+  let total = 0;
+  total = Object.values(salaries).reduce((sum, salary) => sum + salary, 0);
+
+  // Cache the result in WeakMap
+  cacheMap.set(salaries, total);
+
+  // Return the processed result
+  return total;
 }
 
 let marketingSalary = { Dan: 1000, Emily: 3000, John: 3000, Kate: 5000 };
