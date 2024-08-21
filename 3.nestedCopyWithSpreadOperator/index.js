@@ -1,3 +1,5 @@
+// Step 1: Create an object with two levels of nested properties
+'use strict';
 let originalObject = {
   id: 1,
   name: 'John Doe',
@@ -11,14 +13,27 @@ let originalObject = {
   hobbies: ['reading', 'gaming', 'hiking'],
 };
 
-// Manually copy the object using the spread operator, use the originalObject as the source
-// edit the code below
-let copiedObject = {};
+let copiedObject = {
+  ...originalObject,
+  contact: {
+    ...originalObject.contact,
+    address: {
+      ...originalObject.contact.address,
+    },
+  },
+  hobbies: [...originalObject.hobbies],
+};
 
-// ------------------
-// dont change the code below
-// make sure all the comparisons are false
-console.log(originalObject === copiedObject); // Should be false
-console.log(originalObject.contact === copiedObject.contact); // Should be false
-console.log(originalObject.contact.address === copiedObject.contact.address); // Should be false
-console.log(originalObject.hobbies === copiedObject.hobbies); // Should be false
+//modif objcetnya
+copiedObject.name = 'Jane Doe';
+copiedObject.contact.email = 'jane.doe@example.com';
+copiedObject.contact.address.city = 'Los Angeles';
+copiedObject.hobbies.push('cooking');
+
+console.log('Original Object:', originalObject);
+console.log('Copied Object:', copiedObject);
+
+console.log(originalObject === copiedObject);
+console.log(originalObject.contact === copiedObject.contact);
+console.log(originalObject.contact.address === copiedObject.contact.address);
+console.log(originalObject.hobbies === copiedObject.hobbies);
