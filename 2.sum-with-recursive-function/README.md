@@ -40,3 +40,46 @@ function sumNestedArray(arr) {
 let totalSum = sumNestedArray(numbers);
 console.log(totalSum); // Should calculate and return the sum of all numbers
 ```
+
+# Fungsi Rekursif untuk Menjumlahkan Angka dalam Array Bersarang
+
+## Tujuan
+
+Pelajari cara menggunakan rekursi dalam JavaScript dengan mengimplementasikan fungsi yang menghitung jumlah semua angka dalam array yang sangat bertingkat. Tugas ini akan membantu Anda memahami cara bekerja dengan fungsi rekursif untuk memproses struktur data bertumpuk, khususnya array di dalam array.
+
+## Petunjuk
+
+### 1. Menerapkan Fungsi Rekursif
+
+Anda akan mengimplementasikan fungsi bernama `sumNestedArray` yang:
+
+- Menerima array sebagai parameternya.
+- Iterasi setiap elemen dalam array.
+- Jika elemennya adalah array, elemen tersebut harus memanggil dirinya sendiri secara rekursif pada sub-array ini dan menambahkan hasilnya ke total yang berjalan.
+- Jika elemennya berupa angka, maka harus ditambahkan ke total berjalan.
+
+### 2. Tangani Berbagai Tingkat Penyusunan
+
+Pastikan bahwa fungsi tersebut dapat menangani array yang disarangkan hingga kedalaman berapa pun dan masih menjumlahkan semua angka dengan benar.
+
+### 3. Uji Fungsi `sumNestedArray`
+
+Uji fungsi dengan memanggilnya dengan berbagai struktur array bersarang dan verifikasi bahwa fungsi tersebut menghitung jumlah total semua angka dengan benar.
+
+## Contoh Penggunaan
+
+Berikut cara menyusun kode Anda:
+
+```javascript
+// Langkah 1: Buat struktur array bersarang
+misalkan angka = [1, [2, 3], [4, [5, 6]], 7, [[8], 9], 10];
+
+// Langkah 2: Implementasikan fungsi rekursif
+fungsi jumlahNestedArray(arr) {
+  // Kode rekursif Anda ada di sini
+}
+
+// Langkah 3: Uji fungsi sumNestedArray
+misalkan totalSum = sumNestedArray(angka);
+konsol.log(totalJumlah); // Harus menghitung dan mengembalikan jumlah semua angka
+```

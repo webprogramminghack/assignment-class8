@@ -51,3 +51,57 @@ console.log(result3); // Should return the cached total salary for the marketing
 let result4 = processData(devSalary);
 console.log(result4); // Should return the cached total salary for the development department
 ```
+
+# Hasil Fungsi Caching dengan `WeakMap`
+
+## Tujuan
+
+Pelajari cara menggunakan objek `WeakMap` JavaScript untuk menyimpan hasil fungsi yang memproses data numerik dalam suatu objek dalam cache. Tugas ini akan membantu Anda memahami cara meningkatkan kinerja dengan menghindari penghitungan berulang menggunakan cache, sekaligus memungkinkan manajemen memori yang efisien.
+
+## Petunjuk
+
+### 1. Buat Fungsi Caching
+
+Anda akan mengimplementasikan fungsi bernama `processData` yang memproses objek data tertentu yang berisi nilai numerik (misalnya gaji) dan menyimpan hasilnya dalam cache. Fungsi `processData` harus:
+
+- Terima objek sebagai parameternya.
+- Periksa apakah hasil untuk objek tertentu sudah ada di cache (objek `WeakMap`).
+- Jika hasilnya tidak ada di cache, lakukan beberapa pemrosesan pada objek, simpan hasilnya di cache, dan kembalikan hasilnya.
+- Jika hasilnya ada di cache, langsung kembalikan hasil cache tersebut.
+
+### 2. Tentukan Contoh Fungsi Pemrosesan Data
+
+Buat fungsi sampel di dalam `processData` yang menyimulasikan tugas komputasi intensif. Untuk tugas ini, Anda akan:
+
+- Jumlahkan semua nilai numerik (misalnya gaji) pada objek.
+
+### 3. Menerapkan Logika Caching
+
+- Gunakan objek `WeakMap` untuk menyimpan hasil pemrosesan.
+- Kunci dalam `WeakMap` harus berupa objek, dan nilainya harus berupa hasil yang diproses.
+
+### 4. Uji Fungsi `processData`
+
+- Uji fungsi `processData` dengan memanggilnya dengan objek berbeda yang mewakili gaji departemen berbeda.
+- Pastikan fungsi hanya memproses objek satu kali untuk setiap masukan unik dan mengembalikan hasil cache pada panggilan berikutnya.
+
+## Contoh Penggunaan
+
+Beginilah cara kode Anda dipanggil:
+
+```javascript
+biarkan pemasaranGaji = { Dan: 1000, Emily: 3000, John: 3000, Kate: 5000 };
+biarkan devSalary = { Alice: 4000, Bob: 6000, Charlie: 8000 };
+
+biarkan hasil1 = processData(marketingSalary);
+konsol.log(hasil1); // Harus menghitung dan mengembalikan total gaji untuk departemen pemasaran
+
+biarkan hasil2 = processData(devSalary);
+konsol.log(hasil2); // Harus menghitung dan mengembalikan total gaji untuk departemen pengembangan
+
+biarkan hasil3 = processData(marketingSalary);
+konsol.log(hasil3); // Harus mengembalikan total gaji yang di-cache untuk departemen pemasaran
+
+biarkan result4 = processData(devSalary);
+konsol.log(hasil4); // Harus mengembalikan total gaji yang di-cache untuk departemen pengembangan
+```

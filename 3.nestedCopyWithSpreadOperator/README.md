@@ -53,3 +53,59 @@ let copiedObject = {
   ...originalObject,
   propertyName: {...originalObject.propertyName}
 ```
+
+# Menyalin Objek Bersarang Menggunakan Operator Spread
+
+## Tujuan
+
+Pelajari cara menggunakan operator spread (`...`) di JavaScript untuk membuat salinan dangkal suatu objek dan cara menangani objek bertumpuk secara manual. Tugas ini akan membantu Anda memahami cara menggunakan operator spread secara efektif untuk menyalin objek, terutama saat menangani struktur bersarang, dan cara memverifikasi bahwa objek yang disalin tidak bergantung pada aslinya.
+
+## Petunjuk
+
+### 1. Pahami Masalahnya
+
+Dalam JavaScript, menyalin objek menggunakan operator spread (`...`) akan membuat salinan dangkal. Artinya, saat properti tingkat atas disalin, objek apa pun yang bertumpuk di dalam properti tersebut masih direferensikan dari objek aslinya. Untuk sepenuhnya menyalin objek dengan properti bersarang, Anda harus menyebarkan setiap tingkat sarang secara manual.
+
+### 2. Salin Objek Bersarang
+
+Anda akan bekerja dengan objek yang memiliki dua tingkat sarang. Tugas Anda adalah menyalin objek ini secara manual menggunakan operator spread, memastikan bahwa properti tingkat atas dan properti bertumpuk disalin secara independen.
+
+### 3. Memodifikasi dan Menguji Objek yang Disalin
+
+Setelah menyalin objek, ubah beberapa properti di objek yang disalin. Kemudian, bandingkan referensi antara objek asli dan objek salinan untuk memverifikasi bahwa keduanya memang independen. Catat objek asli dan objek yang disalin untuk mengonfirmasi bahwa perubahan pada objek yang disalin tidak memengaruhi objek asli.
+
+### 4. Uji Independensi Referensi
+
+Tulis kode untuk membandingkan referensi antara:
+
+1. Benda asli dan salinan terluar.
+2. Objek `kontak`.
+3. Objek `alamat` dalam `kontak`.
+4. Array `hobi`.
+
+Semua perbandingan harus menghasilkan `false`, yang menunjukkan bahwa objek yang disalin dan properti yang disarangkannya tidak bergantung pada objek aslinya.
+
+## Contoh Penggunaan
+
+Berikut cara menyusun kode Anda:
+
+```javascript
+// Langkah 1: Buat objek dengan dua level properti bertingkat
+biarkan Objek asli = {
+  nomor identitas: 1,
+  nama: 'John Doe',
+  hubungi: {
+    email: 'john.doe@example.com',
+    alamat: {
+      jalan: '123 Jalan Utama',
+      kota: 'New York'
+    }
+  },
+  hobi: ['membaca', 'bermain game', 'mendaki gunung']
+};
+
+// Langkah 2: Salin objek secara manual menggunakan operator spread
+biarkan disalinObject = {
+  ...objek asli,
+  propertyName: {...originalObject.propertyName}
+```
