@@ -28,7 +28,7 @@ let copiedObject = {
   hobbies: [...originalObject.hobbies],
 };
 
-console.log('Original Object:', originalObject);
+//console.log('Original Object:', originalObject);
 console.log('Copied Object:', copiedObject);
 
 // ------------------
