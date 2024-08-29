@@ -2,6 +2,15 @@
 
 function processData(salaries) {
   // start coding here
+  const salaryCache = new WeakMap();
+  if (salaryCache.has(salaries)) {
+    return salaryCache.get(salaries);
+  }
+
+  const totalSalary = Object.values(salaries).reduce((sum, salary) => sum + salary, 0);
+  salaryCache.set(salaries, totalSalary);
+
+  return totalSalary
 }
 
 let marketingSalary = { Dan: 1000, Emily: 3000, John: 3000, Kate: 5000 };
