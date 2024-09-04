@@ -25,9 +25,15 @@ let copiedObject = {
 
 //mengubah beberapa properti pada objek yang disalin
 copiedObject.id = 2;
-copiedObject.contact.email = 'jane.doe@example.com';
-copiedObject.contact.address.city = 'San Francisco';
-copiedObject.hobbies.push('coding');
+copiedObject.contact = {
+  ...copiedObject.contact,
+  email: 'jane.doe@example.com',
+  address: {
+    ...copiedObject.contact.address,
+    city: 'San Francisco',
+  },
+};
+copiedObject.hobbies = [...copiedObject.hobbies, 'coding'];
 
 // ------------------
 // dont change the code below
@@ -36,7 +42,3 @@ console.log(originalObject === copiedObject); // Should be false
 console.log(originalObject.contact === copiedObject.contact); // Should be false
 console.log(originalObject.contact.address === copiedObject.contact.address); // Should be false
 console.log(originalObject.hobbies === copiedObject.hobbies); // Should be false
-
-// menampilkan objek asli dan objek yang disalin
-console.log('Original Object:', originalObject);
-console.log('CopiedObject:', copiedObject);
