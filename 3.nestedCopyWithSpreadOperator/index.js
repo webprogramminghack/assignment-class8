@@ -21,7 +21,7 @@ let copiedObject = {
   },
   hobbies: { ...originalObject.hobbies },
 };
-console.log(copiedObject);
+
 // ------------------
 // dont change the code below
 // make sure all the comparisons are false
