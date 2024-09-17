@@ -13,7 +13,24 @@ let originalObject = {
 
 // Manually copy the object using the spread operator, use the originalObject as the source
 // edit the code below
-let copiedObject = {};
+let copiedObject = {
+  ...originalObject,
+  contact: {
+    ...originalObject.contact,
+    address: {
+      ...originalObject.contact.address
+    }
+  },
+  hobbies: [...originalObject.hobbies]
+};
+
+copiedObject.name = 'Jane Doe';
+copiedObject.contact.email = 'jane.doe@example.com';
+copiedObject.contact.address.city = 'Los Angeles';
+copiedObject.hobbies.push('swimming');
+
+console.log('Original Object:', originalObject);
+console.log('Copied Object:', copiedObject);
 
 // ------------------
 // dont change the code below
