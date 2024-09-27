@@ -2,6 +2,19 @@
 
 function processData(salaries) {
   // start coding here
+  let weakMap = new WeakMap();
+  // weakMap.set(salaries, 'data has been precessed'); // testing
+
+  if (!weakMap.has(salaries)) {
+    let val = Object.values(salaries);
+    val = val.reduce((a, c) => a + c, 0);
+
+    console.log('process init data');
+
+    weakMap.set(salaries, val);
+    return val;
+  }
+  return weakMap.get(salaries);
 }
 
 let marketingSalary = { Dan: 1000, Emily: 3000, John: 3000, Kate: 5000 };
