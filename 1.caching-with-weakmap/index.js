@@ -1,7 +1,13 @@
 // please use weakmap to cache the total salary
-
-function processData(salaries) {
+const cache = new WeakMap();
+function processData(data) {
   // start coding here
+  if (cache.has(data)) {
+    return cache.get(data);
+  }
+  let totalSalary = Object.values(data).reduce((acc, salary) => acc + salary, 0);
+  cache.set(data, totalSalary);
+  return totalSalary;
 }
 
 let marketingSalary = { Dan: 1000, Emily: 3000, John: 3000, Kate: 5000 };

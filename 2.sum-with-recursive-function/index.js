@@ -1,5 +1,14 @@
 function sumNestedArray(arr) {
   // start coding here
+  let total = 0;
+  for (let element of arr) {
+    if (Array.isArray(element)) {
+      total += sumNestedArray(element);
+    } else if (typeof element === 'number') {
+      total += element;
+    }
+  }
+  return total;
 }
 
 let numbers = [1, [2, 3], [4, [5, 6]], 7, [[8], 9], 10];
